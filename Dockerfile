@@ -3,8 +3,11 @@ FROM codefresh/buildpacks:all
 RUN sudo apt-get -y update
 RUN sudo apt-get -y install openjdk-7-jdk
 COPY Main.java /Main.java
-RUN javac Main.java
-CMD java Main
+COPY rt.jar /rt.jar
+RUN javac -cp rt.jar Main.java
+
+EXPOSE 93
+CMD sudo java -cp rt.jar:. Main
 
 
 #COPY package.json /src/package.json
