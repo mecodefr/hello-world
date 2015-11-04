@@ -6,7 +6,7 @@ COPY Main.java /Main.java
 COPY rt.jar /rt.jar
 RUN javac -cp rt.jar Main.java
 
-EXPOSE 93
+EXPOSE 83
 CMD sudo java -cp rt.jar:. Main
 
 
